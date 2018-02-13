@@ -1,0 +1,22 @@
+<div class="theme-default">
+<?php
+$escape=new Zend\Escaper\Escaper("utf-8");
+?>
+<div id="<?=$this->options["id"];?>" class="nivoSlider">
+<?php
+foreach ($this->entity as $item){
+    $url=trim($item->getUrl());
+    if (!empty($url)){
+        $a_start="<a href=\"{$url}\">";
+        $a_end="</a>";
+    } else {
+        $a_start="";
+        $a_end="";
+    }
+?>
+    <?=$a_start;?><img src="<?=$this->ImageStorage($this->options["category"],$item->getId(),"img");?>" alt="" title="<?=$escape->escapeHtmlAttr($item->getAlt());?>" /><?=$a_end;?>
+<?php
+}
+    ?>
+</div>
+</div>
