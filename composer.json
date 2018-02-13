@@ -1,0 +1,35 @@
+{
+    "name": "masterflash-ru/slider",
+    "description": "Выделеный сервис разных слайдеров для Simba",
+    "type": "Service",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "masterflash"
+    ],
+    "homepage": "https://masterflash.ru/",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.0",
+    },
+    "autoload": {
+        "psr-4": {
+            "Mf\\Slider\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mf\\Slider\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.1-dev",
+            "dev-develop": "0.0.1-dev"
+        },
+        "zf": {
+            "component": "Mf\\Slider",
+            "config-provider": "masterflash-ru\\Mf\\Slider\\ConfigProvider"
+        }
+    }
+}
