@@ -4,9 +4,34 @@
  */
 
 namespace Mf\Slider;
+use Zend\Router\Http\Literal;
+use Zend\Router\Http\Segment;
 
 
 return [
+    'router' => [
+        'routes' => [
+        'adslider' => [
+             'type' => Segment::class,
+             'options' => [
+                  'route'    => '/adslider/:link',
+                  'constraints' => [
+                        'link' => '[a-zA-Z0-9_\-]+',
+                  ],
+                 'defaults' => [
+                     'controller' => Controller\IndexController::class,
+                     'action'     => 'index',
+                 ],
+            ],
+        ],
+        ],
+    ],
+    'controllers' => [
+        'factories' => [
+            Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class,
+        ],
+    ],
+
     "slider"=>[],
 
     'view_helpers' => [
@@ -16,7 +41,6 @@ return [
         'aliases' => [
             'Slider' => View\Helper\Slider::class,
             'slider' => View\Helper\Slider::class,
-
         ],
     ],
 
