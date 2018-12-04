@@ -6,6 +6,8 @@
 namespace Mf\Slider;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
+use Zend\Cache\Storage\Plugin\Serializer;
+use Zend\Cache\Storage\Adapter\Filesystem;
 
 
 return [
