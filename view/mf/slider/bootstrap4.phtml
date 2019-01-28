@@ -1,0 +1,62 @@
+<?php
+if (isset($this->options["container-carousel-css"])){
+    $container_carousel_css=$this->options["container-carousel-css"];
+} else{
+    $container_carousel_css="carousel slide";
+}
+?>
+<div id="<?=$this->options["category"]?>" class="<?=$container_carousel_css?>" data-ride="carousel">
+<?php
+    if ($this->options["indicators"]){
+    ?>
+    <ol class="carousel-indicators">
+        <?php
+        for($i=0;$i<count($this->entity);$i++){
+        ?>
+          <li data-target="#<?=$this->options["category"]?>" data-slide-to="<?=$i?>" class="<?=($i==0) ? "active":""?>"></li>
+        <?php
+        }
+        ?>
+        </ol>
+<?php
+    }
+    ?>
+<div class="carousel-inner">
+<?php
+foreach ($this->entity as $k=>$item){
+    $url=trim($item->getUrl());
+    $active="";
+    if (empty($k)){
+        $active="active";
+    }
+    if (!empty($url)){
+        $a_start="<a href=\"{$url}\" class=\"carousel-item {$active}\">";
+        $a_end="</a>";
+    } else {
+        $a_start="<div class=\"carousel-item {$active}\">";
+        $a_end="</div>";
+    }
+?>
+    <?=$a_start;?> 
+       <img src="<?=$this->ImageStorage($this->options["category"],$item->getId(),"img");?>" class="d-block mx-auto" alt="<?=$this->escapeHtmlAttr($item->getAlt());?>" title="<?=$this->escapeHtmlAttr($item->getAlt());?>" />
+       <?=$a_end;?>
+<?php
+}
+    ?>
+</div>
+    <?php
+    if ($this->options["control"]){
+    ?>
+
+   <a class="carousel-control-prev" href="#<?=$this->options["category"]?>" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#<?=$this->options["category"]?>" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    <?php
+    }
+    ?>
+    </div>

@@ -1,0 +1,19 @@
+<ul id="<?=$this->options["name"];?>">
+<?php
+foreach ($this->entity as $item){
+    $url=trim($item->getUrl());
+    if (!empty($url)){
+        $a_start="<a href=\"{$url}\">";
+        $a_end="</a>";
+    } else {
+        $a_start="";
+        $a_end="";
+    }
+?>
+    <li><?=$a_start;?>
+       <img src="<?=$this->ImageStorage($this->options["category"],$item->getId(),"img");?>" alt="<?=$this->escapeHtmlAttr($item->getAlt());?>" title="<?=$this->escapeHtmlAttr($item->getAlt());?>" />
+        <?=$a_end;?></li>
+<?php
+}
+    ?>
+</ul>

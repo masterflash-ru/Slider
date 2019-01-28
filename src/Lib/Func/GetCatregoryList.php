@@ -21,7 +21,7 @@ public function __invoke($obj,$infa,$struct_arr,$pole_type,$pole_dop,$tab_name,$
 	$obj->dop_sql['id']=[];
 	foreach ($l as $id=>$item)
 		{
-			$obj->dop_sql['name'][]=$item['description'];
+			$obj->dop_sql['name'][]=$item['name'];
 			$obj->dop_sql['id'][]=$id;
 		}
 	//это значение по умолчанию
