@@ -10,7 +10,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "zendframework/zend-cache": "^2.7",
+        "masterflash-ru/ado": "^2.0",
+        "masterflash-ru/storage": "*"
     },
     "autoload": {
         "psr-4": {
