@@ -34,15 +34,15 @@ public function __construct ($connection,$cache, $config)
 
 public function indexAction()
 {
-    	//try{
+    	try{
         $url=$this->params('link',null);
     $view=new ViewModel();
 		//создаем ключ кеша
-		$key="slider_".preg_replace('/[^0-9a-zA-Z_\-]/iu', '',$url);
+		$key="slider_page".preg_replace('/[^0-9a-zA-Z_\-]/iu', '',$url);
         //пытаемся считать из кеша
         $result = false;
         $slider= $this->cache->getItem($key, $result);
-        if (!$result || true){
+        if (!$result){
             //промах кеша, создаем
 			$c=new Command();
 			$c->NamedParameters=true;
@@ -68,11 +68,11 @@ public function indexAction()
     $view->setVariables(["slider"=>$slider]);
     return $view;
 
-	//}
-	//catch (\Exception $e) {
+	}
+	catch (\Exception $e) {
         //любое исключение - 404
-   //     $this->getResponse()->setStatusCode(404);
-   // }
+       $this->getResponse()->setStatusCode(404);
+    }
 
 }
 
