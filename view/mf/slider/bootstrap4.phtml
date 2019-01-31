@@ -30,7 +30,7 @@ foreach ($this->entity as $k=>$item){
         $active="active";
     }
     if (!empty($url)){
-        $a_start="<a href=\"{$url}\" class=\"carousel-item {$active}\" target=\"_blank\">";
+        $a_start="<a href=\"{$url}\" class=\"carousel-item {$active}\" target=\"_blank\"  rel=\"nofollow\">";
         $a_end="</a>";
     } else {
         $a_start="<div class=\"carousel-item {$active}\">";
