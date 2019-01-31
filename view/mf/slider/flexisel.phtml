@@ -3,7 +3,7 @@
 foreach ($this->entity as $item){
     $url=trim($item->getUrl());
     if (!empty($url)){
-        $a_start="<a href=\"{$url}\">";
+        $a_start="<a href=\"{$url}\" target=\"_blank\">>";
         $a_end="</a>";
     } else {
         $a_start="";
