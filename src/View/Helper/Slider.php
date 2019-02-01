@@ -47,7 +47,12 @@ public function __invoke(string $sysname,array $options=[])
     //сливаем опции переданные сюда напрямую
     $options=ArrayUtils::merge($options1,$options);
     
-    $route_name=$this->MvcEvent->getRouteMatch()->getMatchedRouteName();
+    /*если марштура не существует, будет пусто, значит выходим*/
+    $route=$this->MvcEvent->getRouteMatch();
+    if (empty($route)){
+        return "";
+    }
+    $route_name=$route->getMatchedRouteName();
     if (
         !empty($options["show_routes"]) && !in_array($route_name,$options["show_routes"]) /*проверяем для каких маршрутов выводить слайдер*/
         || 
