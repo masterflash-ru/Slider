@@ -47,21 +47,19 @@ public function __invoke(string $sysname,array $options=[])
     //сливаем опции переданные сюда напрямую
     $options=ArrayUtils::merge($options1,$options);
     
+    $route_name=$this->MvcEvent->getRouteMatch()->getMatchedRouteName();
+    if (
+        !empty($options["show_routes"]) && !in_array($route_name,$options["show_routes"]) /*проверяем для каких маршрутов выводить слайдер*/
+        || 
+        !empty($options["hide_routes"]) && in_array($route_name,$options["hide_routes"]) /*проверяем для каких маршрутов НЕ выводить слайдер*/
+        ) { return "";}
+
 	$result = false;
 	$key="Slider_".preg_replace('/[^0-9a-zA-Z_\-]/iu', '',$sysname)."_".md5(serialize($options));
 
     $slider = $this->cache->getItem($key, $result);
     
     if (!$result){
-        $slider="";
-        $route_name=$this->MvcEvent->getRouteMatch()->getMatchedRouteName();
-
-        if (!(
-            !empty($options["show_routes"]) && !in_array($route_name,$options["show_routes"]) /*проверяем для каких маршрутов выводить слайдер*/
-            || 
-            !empty($options["hide_routes"]) && in_array($route_name,$options["hide_routes"]) /*проверяем для каких маршрутов НЕ выводить слайдер*/
-            )
-            ) {
                 $limit="";
                 if (!empty($options["limit_items"])) {
                     $limit=" limit ".(int)$options["limit_items"];
@@ -74,9 +72,7 @@ public function __invoke(string $sysname,array $options=[])
                 $view=$this->getView();
 
                 $slider=$view->partial($options["tpl"],["entity"=>$slider,"options"=>$options]);
-        }
 
-    
         $this->cache->setItem($key, $slider);
         $this->cache->setTags($key,["slider"]);
 
