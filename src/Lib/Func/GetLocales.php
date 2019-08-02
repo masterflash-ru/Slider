@@ -9,8 +9,11 @@ public function __invoke($obj,$infa,$struct_arr,$pole_type,$pole_dop,$tab_name,$
 {
 	//выводит список локалей сайта из константы конфигурации
 
-	
-	$l=$obj->config["locale_enable_list"];// массив допустимых локалей                 
+	if (!empty($obj->config["locale_enable_list"])){
+        $l=$obj->config["locale_enable_list"];// массив допустимых локалей
+    } else {
+        $l=[$obj->config["locale_default"]];
+    }
 		//подменить список
 		$obj->dop_sql['name']=$l;
 		$obj->dop_sql['id']=$l;
