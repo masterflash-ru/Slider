@@ -14,28 +14,8 @@ class Version20191104163156 extends AbstractMigration implements MigrationInterf
         switch ($this->db_type){
             case "mysql":{
                 $this->addSql("delete from design_tables where table_name='slider'");
-                $this->addSql("CREATE TABLE `slider` (
-                      `id` int(11) NOT NULL AUTO_INCREMENT,
-                      `category` char(50) DEFAULT NULL COMMENT 'раздел',
-                      `name` char(255) DEFAULT NULL,
-                      `locale` char(20) DEFAULT NULL,
-                      `alt` char(255) DEFAULT NULL,
-                      `poz` int(11) DEFAULT NULL,
-                      `url` char(255) DEFAULT NULL COMMENT 'URL внешнего перехода',
-                      `link` char(255) DEFAULT NULL COMMENT 'внутренний переход',
-                      `caption1` char(255) DEFAULT NULL,
-                      `caption2` char(255) DEFAULT NULL,
-                      `caption3` char(255) DEFAULT NULL,
-                      `title` char(255) DEFAULT NULL,
-                      `keywords` char(255) DEFAULT NULL,
-                      `description` text,
-                      PRIMARY KEY (`id`),
-                      KEY `locale` (`locale`),
-                      KEY `category` (`category`),
-                      KEY `link` (`link`)
-                    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='разные слайдеры'");
                 $this->addSql("INSERT INTO `design_tables` (`interface_name`, `table_name`, `table_type`, `col_name`, `caption_style`, `row_type`, `col_por`, `pole_spisok_sql`, `pole_global_const`, `pole_prop`, `pole_type`, `pole_style`, `pole_name`, `default_sql`, `functions_befo`, `functions_after`, `functions_befo_out`, `functions_befo_del`, `properties`, `value`, `validator`, `sort_item_flag`, `col_function_array`) VALUES 
-  ('slider', 'slider', 0, 'img', 'a:3:{s:10:\"owner_user\";s:1:\"0\";s:11:\"owner_group\";s:1:\"0\";s:10:\"permission\";i:484;}', 0, 0, 'select * from slider where category=''$pole_dop0'' and locale=''$pole_dop1''  order by poz desc', '', '1,1,0,0', 'name', '', 'id', 'delete from slider where id=$id', '', '', '', '', '', 0x613A323A7B733A32343A22666F726D5F656C656D656E74735F6E65775F7265636F7264223B733A313A2230223B733A32343A22666F726D5F656C656D656E74735F6A6D705F7265636F7264223B733A313A2230223B7D, 'slider', 1, ''),
+  ('slider', 'slider', 0, 'img', 'a:3:{s:10:\"owner_user\";s:1:\"0\";s:11:\"owner_group\";s:1:\"0\";s:10:\"permission\";i:484;}', 0, 0, 'select * from slider where category=\"\$pole_dop0\" and locale=\"\$pole_dop1\"  order by poz desc', '', '1,1,0,0', 'name', '', 'id', 'delete from slider where id=\$id', '', '', '', '', '', 0x613A323A7B733A32343A22666F726D5F656C656D656E74735F6E65775F7265636F7264223B733A313A2230223B733A32343A22666F726D5F656C656D656E74735F6A6D705F7265636F7264223B733A313A2230223B7D, 'slider', 1, ''),
   ('slider', 'slider', 0, '', '', 1, 0, '', '', 'onChange=this.form.submit()', '4', '', '', '', '', '', '\\Mf\\Slider\\Lib\\Func\\GetCatregoryList', '', 'a:2:{i:0;s:1:\"0\";i:1;s:1:\"0\";}', '', '', 0, ''),
   ('slider', 'slider', 0, 'category', '', 2, 0, '', '', '', '0', '', 'pole_dop0', '', '', '', '', '', 'N;', '', 'N;', 0, 'N;'),
   ('slider', 'slider', 0, 'category', '', 3, 0, '', '', '', '0', '', 'pole_dop0', '', '', '', '', '', 'N;', '', 'N;', 0, 'N;'),
@@ -54,9 +34,9 @@ class Version20191104163156 extends AbstractMigration implements MigrationInterf
   ('slider', 'slider', 0, '1', '', 3, 0, '', '', ',', '17', '', 'save,del', '', '', '', '', '', 'a:4:{i:0;s:1:\"1\";i:1;s:1:\"0\";i:2;s:33:\"Сохранить,Удалить\";i:3;s:1:\"0\";}', '', 'N;', 0, 'N;'),
   ('slider', 'slider', 0, 'name', '', 2, 2, '', '', '', '2', '', 'name', '', '', '', '', '', 'a:1:{i:0;s:4:\"Text\";}', '', 'N;', 0, 'N;'),
   ('slider', 'slider', 0, 'name', '', 3, 0, '', '', '', '2', '', 'name', '', '', '', '', '', 'a:1:{i:0;s:4:\"Text\";}', '', 'N;', 0, 'N;'),
-  ('slider', 'slider', 0, 'id', '', 2, 1, '', '', '', '1', '', 'id', '', '', '', '', '', 'a:2:{i:0;s:1:\"0\";i:1;s:1:\"0\";}', 0xD09AD0BED0BDD182D0B5D0BDD18220D0BBD0BED0BAD0B0D0BBD18CD0BDD0BED0B920D181D182D180D0B0D0BDD0B8D186D18B, 'N;', 0, 'N;'),
+ /* ('slider', 'slider', 0, 'id', '', 2, 1, '', '', '', '1', '', 'id', '', '', '', '', '', 'a:2:{i:0;s:1:\"0\";i:1;s:1:\"0\";}', 0xD09AD0BED0BDD182D0B5D0BDD18220D0BBD0BED0BAD0B0D0BBD18CD0BDD0BED0B920D181D182D180D0B0D0BDD0B8D186D18B, 'N;', 0, 'N;'),
   ('slider', 'slider', 0, 'id', '', 3, 0, '', '', '', '49', '', 'id', '', '', '', '', '', 'a:5:{i:0;s:1:\"0\";i:1;s:12:\"slider_detal\";i:2;s:0:\"\";i:3;s:1:\"0\";i:4;s:6:\"button\";}', 0xD0A0D0B5D0B4D0B0D0BAD182D0B8D180D0BED0B2D0B0D182D18C, 'N;', 0, 'N;'),
-  ('slider_detal', 'slider', 0, '', 'a:3:{s:10:\"owner_user\";s:1:\"0\";s:11:\"owner_group\";s:1:\"0\";s:10:\"permission\";i:484;}', 0, 1, 'select * from slider where id=$get_interface_input', '', '0,0,0,0', 'name', '', 'id', '', '', '', '', '', '', 0x613A323A7B733A32343A22666F726D5F656C656D656E74735F6E65775F7265636F7264223B733A313A2230223B733A32343A22666F726D5F656C656D656E74735F6A6D705F7265636F7264223B733A313A2230223B7D, 'slider', 1, ''),
+  */('slider_detal', 'slider', 0, '', 'a:3:{s:10:\"owner_user\";s:1:\"0\";s:11:\"owner_group\";s:1:\"0\";s:10:\"permission\";i:484;}', 0, 1, 'select * from slider where id=\$get_interface_input', '', '0,0,0,0', 'name', '', 'id', '', '', '', '', '', '', 0x613A323A7B733A32343A22666F726D5F656C656D656E74735F6E65775F7265636F7264223B733A313A2230223B733A32343A22666F726D5F656C656D656E74735F6A6D705F7265636F7264223B733A313A2230223B7D, 'slider', 1, ''),
   ('slider_detal', 'slider', 0, 'name', '', 2, 1, '', '', 'size=120', '2', '', '', '', '', '', '', '', 'a:1:{i:0;s:4:\"Text\";}', '', 'N;', 0, 'N;'),
   ('slider_detal', 'slider', 0, 'name', '', 3, 0, '', '', 'size=120', '2', '', 'name', '', '', '', '', '', 'a:1:{i:0;s:4:\"Text\";}', '', 'N;', 0, 'N;'),
   ('slider_detal', 'slider', 0, 'alt', '', 2, 2, '', '', 'cols=120 rows=4', '3', '', 'alt', '', '', '', '', '', 'N;', '', 'N;', 0, 'N;'),
@@ -111,6 +91,27 @@ class Version20191104163156 extends AbstractMigration implements MigrationInterf
   ('ru_RU', 0, 'slider_detal', 'caption_col_description', 'DESCRIPTION'),
   ('ru_RU', 0, 'slider_detal', 'caption_col_1', 'Операция');
 ");
+                $this->addSql("CREATE TABLE `slider` (
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `category` char(50) DEFAULT NULL COMMENT 'раздел',
+                      `name` char(255) DEFAULT NULL,
+                      `locale` char(20) DEFAULT NULL,
+                      `alt` char(255) DEFAULT NULL,
+                      `poz` int(11) DEFAULT NULL,
+                      `url` char(255) DEFAULT NULL COMMENT 'URL внешнего перехода',
+                      `link` char(255) DEFAULT NULL COMMENT 'внутренний переход',
+                      `caption1` char(255) DEFAULT NULL,
+                      `caption2` char(255) DEFAULT NULL,
+                      `caption3` char(255) DEFAULT NULL,
+                      `title` char(255) DEFAULT NULL,
+                      `keywords` char(255) DEFAULT NULL,
+                      `description` text,
+                      PRIMARY KEY (`id`),
+                      KEY `locale` (`locale`),
+                      KEY `category` (`category`),
+                      KEY `link` (`link`)
+                    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='разные слайдеры'");
+
                 break;
             }
             default:{
