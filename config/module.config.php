@@ -51,5 +51,19 @@ return [
             __DIR__ . '/../view',
         ],
     ],
-
+/*описатели интерфейсов*/
+    "interface"=>[
+        "slider"=>__DIR__."/admin.slider.php",
+    ],
+    /*плагины для сетки JqGrid*/
+    "JqGridPlugin"=>[
+        'factories' => [
+            Service\Admin\JqGrid\Plugin\Images::class=>Service\Admin\JqGrid\Plugin\FactoryImages::class,
+            Service\Admin\JqGrid\Plugin\GetCategory::class=>Service\Admin\JqGrid\Plugin\FactoryGetCategory::class,
+        ],
+        'aliases' =>[
+            "slideimage"=>Service\Admin\JqGrid\Plugin\Images::class,
+            "GetCategory" => Service\Admin\JqGrid\Plugin\GetCategory::class,
+        ],
+    ],
 ];

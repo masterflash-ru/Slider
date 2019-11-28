@@ -1,8 +1,5 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
 namespace Mf\Slider\Controller;
@@ -10,7 +7,7 @@ namespace Mf\Slider\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-use Mf\Slider\Entity\Slider;
+
 use ADO\Service\RecordSet;
 use ADO\Service\Command;
 
@@ -34,9 +31,9 @@ public function __construct ($connection,$cache, $config)
 
 public function indexAction()
 {
-    	try{
+    try{
         $url=$this->params('link',null);
-    $view=new ViewModel();
+        $view=new ViewModel();
 		//создаем ключ кеша
 		$key="slider_page".preg_replace('/[^0-9a-zA-Z_\-]/iu', '',$url);
         //пытаемся считать из кеша
@@ -54,28 +51,25 @@ public function indexAction()
 			$rs->CursorType =adOpenKeyset;
 			$rs->Open($c);
             if ($rs->EOF) {throw new  \Exception("Запись в не найдена");}
-			$slider=$rs->FetchEntity(Slider::class);
+			$slider=$rs->FetchEntity();
             
             //сохраним в кеш
             $this->cache->setItem($key, $slider);
 			$this->cache->setTags($key,["slider"]);
         }
-    
-    //вычислим шаблон вывода
-    $tpl=$this->config[$slider->getCategory()];
-    $view->setTemplate($tpl["detal_tpl"]);
-
-    $view->setVariables(["slider"=>$slider]);
-    return $view;
-
-	}
-	catch (\Exception $e) {
+        //вычислим шаблон вывода
+        $tpl=$this->config[$slider->getCategory()];
+        if (!empty($tpl["detal_tpl"])){
+            $view->setTemplate($tpl["detal_tpl"]);
+        }
+        $view->setVariables(["page"=>$slider]);
+        return $view;
+	} catch (\Exception $e) {
         //любое исключение - 404
-       $this->getResponse()->setStatusCode(404);
+        $this->getResponse()->setStatusCode(404);
     }
 
 }
-
 
 }
 
