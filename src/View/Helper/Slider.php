@@ -7,7 +7,6 @@ namespace Mf\Slider\View\Helper;
 
 use Zend\View\Helper\AbstractHelper;
 use ADO\Service\RecordSet;
-use Mf\Slider\Entity\Slider as SliderItems;
 use Exception;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Mvc\MvcEvent;
