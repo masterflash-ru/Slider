@@ -70,7 +70,7 @@ public function __invoke(string $sysname,array $options=[])
                     $limit=" limit ".(int)$options["limit_items"];
                 }
                 $rs=new RecordSet();
-                $rs->open("select * from slider where category='{$sysname}' and locale='{$options["locale"]}' {$limit} order by poz desc",$this->connection);
+                $rs->open("select * from slider where public>0 category='{$sysname}' and locale='{$options["locale"]}' {$limit} order by poz desc",$this->connection);
                 $slider=$rs->FetchEntityAll(SliderItems::class);
 
                 $options["category"]=$sysname;
