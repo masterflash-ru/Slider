@@ -1,7 +1,7 @@
 <?php
 namespace Mf\Slider\Service\Admin\JqGrid\Plugin;
 
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
 use Mf\Storage\Service\ImagesLib;
 /*
 

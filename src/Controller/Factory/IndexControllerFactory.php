@@ -1,7 +1,7 @@
 <?php
 namespace Mf\Slider\Controller\Factory;
 
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 

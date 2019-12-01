@@ -63,7 +63,7 @@ return [
         ],
         'aliases' =>[
             "slideimage"=>Service\Admin\JqGrid\Plugin\Images::class,
-            "GetCategory" => Service\Admin\JqGrid\Plugin\GetCategory::class,
+            "SliderGetCategory" => Service\Admin\JqGrid\Plugin\GetCategory::class,
         ],
     ],
 ];

@@ -90,7 +90,7 @@ return [
                                          ],
                                          "plugins"=>[
                                              "colModel"=>[//плагин срабатывает при генерации сетки, вызывается в помощнике сетки
-                                                 "GetCategory"=>[]
+                                                 "SliderGetCategory"=>[]
                                              ]
                                          ]
                                         ]),
