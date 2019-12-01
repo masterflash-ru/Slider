@@ -212,6 +212,10 @@ return [
                     ColModelHelper::textarea("title",["label"=>"TITLE","hidden"=>true,"editrules"=>["edithidden"=>true]]),
                     ColModelHelper::textarea("keywords",["label"=>"KEYWORDS","hidden"=>true,"editrules"=>["edithidden"=>true]]),
                     ColModelHelper::textarea("description",["label"=>"DESCRIPTION","hidden"=>true,"editrules"=>["edithidden"=>true]]),
+                    ColModelHelper::checkbox("public",[
+                        "width"=>50,
+                        "label"=>"Публик.",
+                    ]),
 
                 ColModelHelper::cellActions(),
                 ],
