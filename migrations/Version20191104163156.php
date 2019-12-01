@@ -20,6 +20,7 @@ class Version20191104163156 extends AbstractMigration implements MigrationInterf
         $table->addColumn(new Ddl\Column\Char('locale', 5,false,null,["COMMENT"=>"Локаль"]));
         $table->addColumn(new Ddl\Column\Char('alt', 255,false,null,["COMMENT"=>"ALT подпись слайда"]));
         $table->addColumn(new Ddl\Column\Integer('poz',true,null,["COMMENT"=>"порядок"]));
+        $table->addColumn(new Ddl\Column\Integer('public',true,null,["COMMENT"=>"Публиковать"]));
         $table->addColumn(new Ddl\Column\Char('url', 255,true,null,["COMMENT"=>"URL внешнего перехода"]));
         $table->addColumn(new Ddl\Column\Char('link', 255,true,null,["COMMENT"=>"URL внутреннего перехода"]));
         $table->addColumn(new Ddl\Column\Char('caption1', 255,true,null,["COMMENT"=>"Надпись"]));
@@ -40,6 +41,8 @@ class Version20191104163156 extends AbstractMigration implements MigrationInterf
             new Ddl\Index\Index(['category'])
         )->addConstraint(
             new Ddl\Index\Index(['link'])
+        )->addConstraint(
+            new Ddl\Index\Index(['public'])
         );
         $this->addSql($table);
     }
