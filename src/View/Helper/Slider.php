@@ -5,11 +5,11 @@
 
 namespace Mf\Slider\View\Helper;
 
-use Zend\View\Helper\AbstractHelper;
+use Laminas\View\Helper\AbstractHelper;
 use ADO\Service\RecordSet;
 use Exception;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Mvc\MvcEvent;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Mvc\MvcEvent;
 
 class Slider extends AbstractHelper 
 {

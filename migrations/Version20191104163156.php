@@ -4,7 +4,7 @@ namespace Mf\Slider;
 
 use Mf\Migrations\AbstractMigration;
 use Mf\Migrations\MigrationInterface;
-use Zend\Db\Sql\Ddl;
+use Laminas\Db\Sql\Ddl;
 
 class Version20191104163156 extends AbstractMigration implements MigrationInterface
 {

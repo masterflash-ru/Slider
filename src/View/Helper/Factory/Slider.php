@@ -2,7 +2,7 @@
 namespace Mf\Slider\View\Helper\Factory;
 
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 /**
  * универсальная фабрика для меню

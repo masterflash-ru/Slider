@@ -10,11 +10,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.0",
-        "zendframework/zend-cache": "^2.7",
-        "masterflash-ru/ado": "^2.0",
+        "php": "^7.2",
+        "laminas/laminas-cache": "^2.7",
+        "masterflash-ru/ado": "^2.2",
         "masterflash-ru/imglib": "*",
-        "masterflash-ru/storage": "^1.0"
+        "masterflash-ru/storage": "^1.2"
     },
     "autoload": {
         "psr-4": {

@@ -4,10 +4,10 @@
  */
 
 namespace Mf\Slider;
-use Zend\Router\Http\Literal;
-use Zend\Router\Http\Segment;
-use Zend\Cache\Storage\Plugin\Serializer;
-use Zend\Cache\Storage\Adapter\Filesystem;
+use Laminas\Router\Http\Literal;
+use Laminas\Router\Http\Segment;
+use Laminas\Cache\Storage\Plugin\Serializer;
+use Laminas\Cache\Storage\Adapter\Filesystem;
 
 
 return [
